@@ -5,6 +5,7 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 // import * as serviceWorker from './serviceWorker.js';
 
+//REDUX
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import allReducers from './reducers';

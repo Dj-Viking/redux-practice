@@ -1,11 +1,13 @@
 import counterReducer from './counter.js';
-import isLogged from './loggedIn.js';
+import isLoggedIn from './loggedIn.js';
+import formReducer from './formReducer.js';
 import { combineReducers } from 'redux';
 
 const allReducers = combineReducers(
   {
     counter: counterReducer,
-    isLogged: isLogged
+    isLoggedIn: isLoggedIn,
+    form: formReducer
   }
 );
 

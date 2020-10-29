@@ -1,18 +1,25 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { increment, decrement, login, logout } from './actions';
+import Form from './Form.js';
 
 function App() {
   //observe global state
-  const counter = useSelector(state => state.counter);
-  const isLogged = useSelector(state => state.isLogged);
+  const counterState = useSelector(state => state.counter);
+  const isLoggedInState = useSelector(state => state.isLoggedIn);
 
-  //allow use of all actions that trigger a reducer based
-  // on the action function
+  /**
+   * allow use of reducer functions by the name of the
+   * 
+   * action in which the reducer holds 
+   * @params {Function} action function you want to invoke and any parameters that action function takes
+   * 
+   * @example dispatch(action(payloadObject))
+   */
   const dispatch = useDispatch();
   return (
     <div className="App">
-      <h1>Counter: {counter}</h1>
+      <h1>Counter: {counterState}</h1>
       <button
         onClick={() => {
           dispatch(increment(10))
@@ -28,7 +35,7 @@ function App() {
         decrement - 
       </button>
       {
-        isLogged
+        isLoggedInState
         ?
         (
           <div>
@@ -55,7 +62,8 @@ function App() {
             </button>
           </div>
         )
-      }
+      } 
+      <Form />
     </div>
   );
 }
