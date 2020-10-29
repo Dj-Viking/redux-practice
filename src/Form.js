@@ -28,12 +28,14 @@ const Form = () => {
   return (
     <>
       <form>
+        {/* name form input */}
         <input type="text" placeholder="name"
           onChange={(e) => {
             dispatch(nameChange(e.target.value));
             dispatch(NAME_VALID(e.target.value));
           }}
         ></input>
+        {/* age form input */}
         <input 
           type="number" 
           value={formState.age}
@@ -43,6 +45,7 @@ const Form = () => {
             dispatch(AGE_VALID(e.target.value))
           }}
         ></input>
+        {/* city form input */}
         <input type="text" placeholder="city"
           onChange={(e) => {
             dispatch(cityChange(e.target.value))
