@@ -1,12 +1,11 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement, login, logout } from './actions';
-import Form from './Form.js';
+// import { useSelector } from 'react-redux';
+import Form from './components/Form';
+import AudioPlayer from './components/AudioPlayer';
+import Counter from './components/Counter';
+import Login from './components/Login';
 
 function App() {
-  //observe global state
-  const counterState = useSelector(state => state.counter);
-  const isLoggedInState = useSelector(state => state.isLoggedIn);
 
   /**
    * allow use of reducer functions by the name of the
@@ -16,53 +15,12 @@ function App() {
    * 
    * @example dispatch(action(payloadObject))
    */
-  const dispatch = useDispatch();
+
   return (
     <div className="App">
-      <h1>Counter: {counterState}</h1>
-      <button
-        onClick={() => {
-          dispatch(increment(10))
-        }}
-      >
-        increment + 
-      </button>
-      <button
-        onClick={() => {
-          dispatch(decrement(1000))
-        }}
-      >
-        decrement - 
-      </button>
-      {
-        isLoggedInState
-        ?
-        (
-          <div>
-            <h3>CLICK TO LOGOUT</h3>
-            <button
-              onClick={() => {
-                dispatch(logout())
-              }}
-            >
-              LOGOUT
-            </button>
-          </div>
-        )
-        :
-        (
-          <div>
-            <h3>CLICK TO LOGIN</h3>
-            <button
-              onClick={() => {
-                dispatch(login())
-              }}
-            >
-              LOGIN
-            </button>
-          </div>
-        )
-      } 
+      <AudioPlayer />
+      <Counter />
+      <Login />
       <Form />
     </div>
   );
